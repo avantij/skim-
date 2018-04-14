@@ -3,5 +3,9 @@
 }
 
 #dropdown {
-	background-color: #47BCEC !important; 
+	background-color: #47BCEC !important;
+}
+
+.main {
+	padding: 50;
 }

@@ -2,8 +2,8 @@
 <html>
 <head>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
 	<!-- Optional theme -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
@@ -28,7 +28,7 @@
 				$('#course-dropdown-menu').append(
 					$('<li>').append(
 						$('<a>').attr('href','#').append($(this).attr('value') + " 1001")
-						)); 
+						));
 				$('#course-dropdown-menu').append(
 					$('<li>').append(
 						$('<a>').attr('href','#').append($(this).attr('value') + " 2110")
@@ -45,70 +45,98 @@
 
 	</script>
 
-</head> 
+</head>
 
 <!-- for the future https://silviomoreto.github.io/bootstrap-select/examples/ -->
 
 <body>
+	<nav class="navbar navbar-dark bg-dark">
+  		<a class="navbar-brand" href="#">
+    		<img src="assets/milklogo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+    			Skim
+  		</a>
+	</nav>
 	<div class="container">
-		<h1>skim</h1>
-		<p>fill your classes to the top</p> 
-		<div class="col-sm-4">
-			<form>
-				<div class="dropdown" id="subject-dropdown">
-					<div class="row">
-						<div class="btn-group">
-							<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-								<span class="selection">Subject</span>
-								<span class="caret"></span>
-							</button>
-							<ul class="dropdown-menu" id="subject-dropdown-menu">
-								<li><a href="#" value="CS">Computer Science</a></li>
-								<li><a href="#" value="MATH">Math</a></li>
-								<li><a href="#" value="ME">Mechanical Engineering</a></li>
-							</ul>
-						</div>
+		<div class="row">
+			<div class="col-sm-4" style="padding-top:20px;">
+				<div class="card text-white bg-info mb-3">
+  						<div class="card-body text-center">
+    						<h5 class="card-title">Start Here</h5>
+    							<p class="card-text">Start building a visualization by beginning with a CRN number or subject below.</p>
+  						</div>
 					</div>
-				</div>
-				<div class="dropdown" id="course-dropdown">
-					<div class="row">
-						<div class="btn-group">
-							<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-								<span class="selection">Course</span>
-								<span class="caret"></span>
-							</button>
-							<ul class="dropdown-menu" id="course-dropdown-menu">
-								<li><a href="#">CS 103</a></li>
-								<li><a href="#">Math 202</a></li>
-								<li><a href="#">ME 375</a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="dropdown">
-						<div class="btn-group">
-							<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-								<span class="selection">Year</span>
-								<span class="caret"></span>
-							</button>
-							<ul class="dropdown-menu">
-								<li><a href="#">Spring 2018</a></li>
-								<li><a href="#">Fall 2017</a></li>
-								<li><a href="#">Summer 2017</a></li>
-								<li><a href="#">All Years</a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<button type="submit" class="btn btn-primary">Update Graph</button>
-				</div>
-			</form>
+			</div>
 		</div>
-		<div class="col-sm-6">
-			<canvas id="myChart"></canvas>
+		<div class="row">
+			<div class="col-sm-4">
+				<div class="input-group mb-3">
+  					<div class="input-group-prepend">
+    					<button class="btn btn-outline-secondary" type="button">
+							<i class="fas fa-search"></i>
+						</button>
+  					</div>
+  					<input type="text" class="form-control" placeholder="CRN#" aria-label="" aria-describedby="basic-addon1">
+				</div>
+			</div>
 		</div>
+		<div class="row">
+			<div class="col-sm-4">
+				<form>
+					<div class="dropdown" id="subject-dropdown">
+						<div class="row">
+							<div class="btn-group">
+								<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+									<span class="selection">Subject</span>
+									<span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu" id="subject-dropdown-menu">
+									<li><a href="#" value="CS">Computer Science</a></li>
+									<li><a href="#" value="MATH">Math</a></li>
+									<li><a href="#" value="ME">Mechanical Engineering</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="dropdown" id="course-dropdown">
+						<div class="row">
+							<div class="btn-group">
+								<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+									<span class="selection">Course</span>
+									<span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu" id="course-dropdown-menu">
+									<li><a href="#">CS 103</a></li>
+									<li><a href="#">Math 202</a></li>
+									<li><a href="#">ME 375</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="dropdown">
+							<div class="btn-group">
+								<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+									<span class="selection">Year</span>
+									<span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu">
+									<li><a href="#">Spring 2018</a></li>
+									<li><a href="#">Fall 2017</a></li>
+									<li><a href="#">Summer 2017</a></li>
+									<li><a href="#">All Years</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<button type="submit" class="btn btn-primary">Update Graph</button>
+					</div>
+				</form>
+			</div>
+			<div class="col-sm-6">
+				<canvas id="myChart"></canvas>
+			</div>
+		<div>
 	</div>
 	<script>
 	var ctx = document.getElementById('myChart').getContext('2d');
