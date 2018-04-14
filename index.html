@@ -24,7 +24,7 @@
 	$(function(){
 		$("#course-dropdown").hide();
 
-		$(".dropdown-menu").on('click', 'li a', function() {
+		$(".dropdown-menu").on('click', '.dropdown-item', function() {
 
 			$(this).parents(".btn-group").find('.selection').text($(this).text());
 			$(this).parents(".btn-group").find('.selection').val($(this).text());
@@ -91,40 +91,43 @@
 					<div class="dropdown" id="subject-dropdown">
 						<div class="row">
 							<div class="btn-group">
-								<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+								<button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown">
 									<span class="selection">Subject</span>
-									<span class="caret"></span>
 								</button>
-								<ul class="dropdown-menu" id="subject-dropdown-menu">
-									<li><a href="#" value="CS">Computer Science</a></li>
-									<li><a href="#" value="MATH">Math</a></li>
-									<li><a href="#" value="ME">Mechanical Engineering</a></li>
-								</ul>
+								<div class="dropdown-menu" id="subject-dropdown-menu">
+    								<button class="dropdown-item" type="button" value="CS">Computer Science</button>
+    								<button class="dropdown-item" type="button" value="MATH">Math</button>
+    								<button class="dropdown-item" type="button" value="ME">Mechanical Engineering</button>
+  								</div>
 							</div>
 						</div>
 					</div>
 					<div class="dropdown" id="course-dropdown">
 						<div class="row">
 							<div class="btn-group">
-								<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+								<button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown">
 									<span class="selection">Course</span>
-									<span class="caret"></span>
 								</button>
-								<ul class="dropdown-menu" id="course-dropdown-menu">
-									<li><a href="#">CS 103</a></li>
-									<li><a href="#">Math 202</a></li>
-									<li><a href="#">ME 375</a></li>
-								</ul>
+								<div class="dropdown-menu" id="subject-dropdown-menu">
+    								<button class="dropdown-item" type="button">CS 103</button>
+    								<button class="dropdown-item" type="button">Math 202</button>
+    								<button class="dropdown-item" type="button">ME 375</button>
+  								</div>
 							</div>
 						</div>
 					</div>
 					<div class="row">
 						<div class="dropdown">
 							<div class="btn-group">
-								<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+								<button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown">
 									<span class="selection">Year</span>
-									<span class="caret"></span>
 								</button>
+								<div class="dropdown-menu" id="subject-dropdown-menu">
+    								<button class="dropdown-item" type="button">Spring 2018</button>
+    								<button class="dropdown-item" type="button">Fall 2017</button>
+    								<button class="dropdown-item" type="button">Summer 2017</button>
+									<button class="dropdown-item" type="button">All Years</button>
+  								</div>
 								<ul class="dropdown-menu">
 									<li><a href="#">Spring 2018</a></li>
 									<li><a href="#">Fall 2017</a></li>
@@ -135,7 +138,7 @@
 						</div>
 					</div>
 					<div class="row">
-						<button type="submit" class="btn btn-primary">Update Graph</button>
+						<button type="submit" class="btn btn-secondary">Update Graph</button>
 					</div>
 				</form>
 			</div>
