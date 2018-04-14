@@ -1,91 +1,133 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
- <link rel="stylesheet" type="text/css" href="style.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+
+	<script>
+	$(function(){
+		$("#course-dropdown").hide();
+
+		$(".dropdown-menu li a").click(function(){
+
+			$(this).parents(".btn-group").find('.selection').text($(this).text());
+			$(this).parents(".btn-group").find('.selection').val($(this).text());
+
+			$('#course-dropdown-menu').empty()
+			$('#course-dropdown-menu').append(
+    			$('<li>').append(
+        			$('<a>').attr('href','#').append($(this).attr('value') + " 1001")
+        	)); 
+        	$('#course-dropdown-menu').append(
+    			$('<li>').append(
+        			$('<a>').attr('href','#').append($(this).attr('value') + " 2110")
+        	)); 
+
+		});
+
+		$("#subject-dropdown-menu").click(function(){
+			$("#course-dropdown").show();
+		});
+
+	});
+
+	</script>
+
 </head> 
 
 <body>
-<div class="container">
-  <h1>skim</h1>
-  <p>fill your classes to the top</p> 
-  <div class="col-sm-4">
-  	<form>
-		  <div class="dropdown">
-		  <div class="row">
-		    <button class="btn btn-primary dropdown-toggle" id="dropdown" type="button" data-toggle="dropdown">Subject
-		    <span class="caret"></span></button>
-		    <ul class="dropdown-menu">
-		      <li><a href="#">Computer Science</a></li>
-		      <li><a href="#">Math</a></li>
-		      <li><a href="#">Mechanical Engineering</a></li>
-		    </ul>
-		  </div>
-          </div>
-          <div class="row">
-		  <div class="dropdown">
-		    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Course #
-		    <span class="caret"></span></button>
-		    <ul class="dropdown-menu">
-		      <li><a href="#">CS 103</a></li>
-		      <li><a href="#">Math 202</a></li>
-		      <li><a href="#">ME 375</a></li>
-		    </ul>
-		  </div>
-		  </div>
-		  <div class="row">
-		   <div class="dropdown">
-		    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Year
-		    <span class="caret"></span></button>
-		    <ul class="dropdown-menu">
-		      <li><a href="#">Past Year</a></li>
-		      <li><a href="#">Past 2 Years</a></li>
-		      <li><a href="#">Past 5 Years</a></li>
-		      <li><a href="#">All Years</a></li>
-		    </ul>
-		  </div>
-          </div>
-          <div class="row">
-		  <button type="submit" class="btn btn-primary">Update Graph</button>
+	<div class="container">
+		<h1>skim</h1>
+		<p>fill your classes to the top</p> 
+		<div class="col-sm-4">
+			<form>
+				<div class="dropdown">
+					<div class="row">
+						<div class="btn-group">
+							<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+								<span class="selection">Subject</span>
+								<span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu" id="subject-dropdown-menu">
+								<li><a href="#" value="CS">Computer Science</a></li>
+								<li><a href="#" value="MATH">Math</a></li>
+								<li><a href="#" value="ME">Mechanical Engineering</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="dropdown" id="course-dropdown">
+					<div class="row">
+						<div class="btn-group">
+							<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+								<span class="selection">Course</span>
+								<span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu" id="course-dropdown-menu">
+								<li><a href="#">CS 103</a></li>
+								<li><a href="#">Math 202</a></li>
+								<li><a href="#">ME 375</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="dropdown">
+						<div class="btn-group">
+							<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+								<span class="selection">Year</span>
+								<span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu">
+								<li><a href="#">Past Year</a></li>
+								<li><a href="#">Past 2 Years</a></li>
+								<li><a href="#">Past 5 Years</a></li>
+								<li><a href="#">All Years</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<button type="submit" class="btn btn-primary">Update Graph</button>
+				</div>
+			</form>
 		</div>
-   </form>
-  </div>
-  <div class="col-sm-6">
-      <canvas id="myChart"></canvas>
-  </div>
-</div>
-<script>
-var ctx = document.getElementById('myChart').getContext('2d');
-var chart = new Chart(ctx, {
+		<div class="col-sm-6">
+			<canvas id="myChart"></canvas>
+		</div>
+	</div>
+	<script>
+	var ctx = document.getElementById('myChart').getContext('2d');
+	var chart = new Chart(ctx, {
     // The type of chart we want to create
     type: 'line',
 
     // The data for our dataset
     data: {
-        labels: ["January", "February", "March", "April", "May", "June", "July"],
-        datasets: [{
-            label: "My First dataset",
-            backgroundColor: 'rgb(255, 99, 132)',
-            borderColor: 'rgb(255, 99, 132)',
-            data: [0, 10, 5, 2, 20, 30, 45],
-        }]
+    	labels: ["January", "February", "March", "April", "May", "June", "July"],
+    	datasets: [{
+    		label: "My First dataset",
+    		backgroundColor: 'rgb(255, 99, 132)',
+    		borderColor: 'rgb(255, 99, 132)',
+    		data: [0, 10, 5, 2, 20, 30, 45],
+    	}]
     },
 
     // Configuration options go here
     options: {}
 });
 
-</script>
+	</script>
 </body>
 
 </html>
