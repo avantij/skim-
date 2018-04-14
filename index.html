@@ -18,20 +18,22 @@
 	$(function(){
 		$("#course-dropdown").hide();
 
-		$(".dropdown-menu li a").click(function(){
+		$(".dropdown-menu li a").click(function() {
 
 			$(this).parents(".btn-group").find('.selection').text($(this).text());
 			$(this).parents(".btn-group").find('.selection').val($(this).text());
 
-			$('#course-dropdown-menu').empty()
-			$('#course-dropdown-menu').append(
-    			$('<li>').append(
-        			$('<a>').attr('href','#').append($(this).attr('value') + " 1001")
-        	)); 
-        	$('#course-dropdown-menu').append(
-    			$('<li>').append(
-        			$('<a>').attr('href','#').append($(this).attr('value') + " 2110")
-        	)); 
+			if ($(this).closest("#subject-dropdown").length) {
+				$('#course-dropdown-menu').empty()
+				$('#course-dropdown-menu').append(
+					$('<li>').append(
+						$('<a>').attr('href','#').append($(this).attr('value') + " 1001")
+						)); 
+				$('#course-dropdown-menu').append(
+					$('<li>').append(
+						$('<a>').attr('href','#').append($(this).attr('value') + " 2110")
+						));
+			}
 
 		});
 
@@ -51,7 +53,7 @@
 		<p>fill your classes to the top</p> 
 		<div class="col-sm-4">
 			<form>
-				<div class="dropdown">
+				<div class="dropdown" id="subject-dropdown">
 					<div class="row">
 						<div class="btn-group">
 							<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
