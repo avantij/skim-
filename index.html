@@ -18,7 +18,7 @@
 	$(function(){
 		$("#course-dropdown").hide();
 
-		$(".dropdown-menu li a").click(function() {
+		$(".dropdown-menu").on('click', 'li a', function() {
 
 			$(this).parents(".btn-group").find('.selection').text($(this).text());
 			$(this).parents(".btn-group").find('.selection').val($(this).text());
