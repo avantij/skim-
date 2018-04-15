@@ -21,6 +21,8 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 
 	<script>
+	var arr = [];
+	arr= [Math.floor(Math.random() * 51),Math.floor(Math.random() * 51),Math.floor(Math.random() * 51),Math.floor(Math.random() * 51),Math.floor(Math.random() * 51),Math.floor(Math.random() * 51),Math.floor(Math.random() * 51)];
 	$(function(){
 		$("#course-dropdown").hide();
 
@@ -137,17 +139,45 @@
 							</div>
 						</div>
 					</div>
-					<div class="row">
-						<button type="submit" class="btn btn-secondary">Update Graph</button>
+					<div class="row row-space">
+						<button type="button" id="update" class="btn btn-secondary">Update Graph</button>
 					</div>
 				</form>
 			</div>
-			<div class="col-sm-6">
+			<div id="graph" class="col-sm-6">
 				<canvas id="myChart"></canvas>
 			</div>
-		<div>
 	</div>
 	<script>
+	$("#update").click(function(){
+		var arr = [];
+		for (var i = 0; i < 7; i++) {
+			arr[i] = Math.floor(Math.random() * 51);
+
+		}
+		 $('#myChart').remove(); // this is my <canvas> element
+	  $('#graph').append('<canvas id="myChart"><canvas>');
+		var ctx = document.getElementById('myChart').getContext('2d');
+		var chart = new Chart(ctx, {
+	    // The type of chart we want to create
+	    type: 'line',
+
+	    // The data for our dataset
+	    data: {
+	    	labels: ["January", "February", "March", "April", "May", "June", "July"],
+	    	datasets: [{
+	    		label: "Class Registration Data",
+	    		backgroundColor: 'rgb(255, 99, 132)',
+	    		borderColor: 'rgb(255, 99, 132)',
+	    		data: [arr[0], arr[1], arr[2], arr[3], arr[4], arr[5], arr[6]],
+	    	}]
+	    },
+
+	    // Configuration options go here
+	    options: {}
+	});
+     });
+
 	var ctx = document.getElementById('myChart').getContext('2d');
 	var chart = new Chart(ctx, {
     // The type of chart we want to create
@@ -157,10 +187,10 @@
     data: {
     	labels: ["January", "February", "March", "April", "May", "June", "July"],
     	datasets: [{
-    		label: "My First dataset",
+    		label: "Class Registration Data",
     		backgroundColor: 'rgb(255, 99, 132)',
     		borderColor: 'rgb(255, 99, 132)',
-    		data: [0, 10, 5, 2, 20, 30, 45],
+    		data: [arr[0], arr[1], arr[2], arr[3], arr[4], arr[5], arr[6]],
     	}]
     },
 
