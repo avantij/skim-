@@ -22,7 +22,7 @@
 
 	<script>
 	var arr = [];
-	arr= [Math.floor(Math.random() * 51),Math.floor(Math.random() * 51),Math.floor(Math.random() * 51),Math.floor(Math.random() * 51),Math.floor(Math.random() * 51),Math.floor(Math.random() * 51),Math.floor(Math.random() * 51)];
+	arr= [Math.floor(Math.random() * 150),Math.floor(Math.random() * 51),Math.floor(Math.random() * 51),Math.floor(Math.random() * 51),Math.floor(Math.random() * 51),Math.floor(Math.random() * 51),Math.floor(Math.random() * 51)];
 	$(function(){
 		$("#course-dropdown").hide();
 
@@ -66,7 +66,7 @@
 	</nav>
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-4" style="padding-top:20px;">
+			<div class="col-sm-3" style="padding-top:20px;">
 				<div class="card text-white mb-3" id="bluebgrd">
   						<div class="card-body text-center">
     						<h5 class="card-title">Start Here</h5>
@@ -74,9 +74,23 @@
   						</div>
 					</div>
 			</div>
+			<div class="col-sm-3">
+				<p class="dash"> Expected Student Capacity </p>
+               <h1 id="capacity"> 150 </h1>
+			</div> 
+
+			<div class="col-sm-3">
+				<p class="dash"> Predicted Drop Students </p>
+				<h1 id="drop"> 20 </h1>
+			</div> 
+
+			<div class="col-sm-3">
+				<p class="dash"> Predicted Waitlist Acceptance </p>
+				<h1 id="percent"> <span id="waitlist"> 81 </span> % </h1>
+			</div> 
 		</div>
 		<div class="row">
-			<div class="col-sm-4">
+			<div class="col-sm-3">
 				<div class="input-group mb-3">
   					<div class="input-group-prepend">
     					<button class="btn btn-outline-secondary" type="button">
@@ -85,10 +99,6 @@
   					</div>
   					<input type="text" class="form-control" placeholder="CRN#" aria-label="" aria-describedby="basic-addon1">
 				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-sm-4">
 				<form>
 					<div class="dropdown" id="subject-dropdown">
 						<div class="row">
@@ -144,19 +154,24 @@
 					</div>
 				</form>
 			</div>
-			<div id="graph" class="col-sm-6">
-				<canvas id="myChart"></canvas>
+			<div id="graph" class="col-sm-9">
+				<canvas height="40%" width="100%" id="myChart"></canvas>
 			</div>
+		</div>
+		
 	</div>
 	<script>
 	$("#update").click(function(){
+		$("#capacity").text(Math.floor(Math.random() * 150));
+		$("#drop").text(Math.floor(Math.random() * 70));
+		$("#waitlist").text(Math.floor(Math.random() * 70));
 		var arr = [];
 		for (var i = 0; i < 7; i++) {
-			arr[i] = Math.floor(Math.random() * 51);
+			arr[i] = Math.floor(Math.random() * 150);
 
 		}
 		 $('#myChart').remove(); // this is my <canvas> element
-	  $('#graph').append('<canvas id="myChart"><canvas>');
+	  $('#graph').append('<canvas height="40%" width="100%" id="myChart"><canvas>');
 		var ctx = document.getElementById('myChart').getContext('2d');
 		var chart = new Chart(ctx, {
 	    // The type of chart we want to create
@@ -167,8 +182,8 @@
 	    	labels: ["January", "February", "March", "April", "May", "June", "July"],
 	    	datasets: [{
 	    		label: "Class Registration Data",
-	    		backgroundColor: 'rgb(255, 99, 132)',
-	    		borderColor: 'rgb(255, 99, 132)',
+	    		backgroundColor: 'transparent',
+    			borderColor: 'rgb(71,188,236)',
 	    		data: [arr[0], arr[1], arr[2], arr[3], arr[4], arr[5], arr[6]],
 	    	}]
 	    },
@@ -188,8 +203,8 @@
     	labels: ["January", "February", "March", "April", "May", "June", "July"],
     	datasets: [{
     		label: "Class Registration Data",
-    		backgroundColor: 'rgb(255, 99, 132)',
-    		borderColor: 'rgb(255, 99, 132)',
+    		backgroundColor: 'transparent',
+    		borderColor: 'rgb(71,188,236)',
     		data: [arr[0], arr[1], arr[2], arr[3], arr[4], arr[5], arr[6]],
     	}]
     },

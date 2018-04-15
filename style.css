@@ -25,3 +25,27 @@
 .row-space {
 	margin-top: 15%;
 }
+
+.dash {
+	padding-top: 40%; 
+	font-size: 70%;
+	padding-bottom: 0%;
+	margin-bottom: 0%;
+	text-align: center;
+}
+
+h1 {
+	text-align: center;
+	font-size: 60px;
+	padding-top: 0px;
+}
+
+#capacity, #drop, #waitlist, #percent {
+	color: #47BCEC;
+	text-align: center;
+	margin-bottom: 0px;
+}
+#myChart {
+	padding-top: 0px;
+	margin-top: 0px;
+}
