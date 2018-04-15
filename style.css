@@ -1,3 +1,14 @@
+#bold {
+	font-weight: bold;
+}
+
+#bluebgrd {
+	padding-top: 8%;
+	padding-bottom: 8%;
+	background-color: #98AFC7;
+	border-radius: 5%;
+}
+
 .dropdown {
 	margin-bottom: 15%;
 }
