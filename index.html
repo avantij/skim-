@@ -34,13 +34,11 @@
 			if ($(this).closest("#subject-dropdown").length) {
 				$('#course-dropdown-menu').empty()
 				$('#course-dropdown-menu').append(
-					$('<li>').append(
-						$('<a>').attr('href','#').append($(this).attr('value') + " 1001")
-						));
+					$('<button>').attr('class','dropdown-item').attr('type', 'button')
+                        .append($(this).attr('value') + " 1001"));
 				$('#course-dropdown-menu').append(
-					$('<li>').append(
-						$('<a>').attr('href','#').append($(this).attr('value') + " 2110")
-						));
+					$('<button>').attr('class','dropdown-item').attr('type', 'button')
+                    .append($(this).attr('value') + " 2110"));
 			}
 
 		});
@@ -77,17 +75,17 @@
 			<div class="col-sm-3">
 				<p class="dash"> Expected Student Capacity </p>
                <h1 id="capacity"> 150 </h1>
-			</div> 
+			</div>
 
 			<div class="col-sm-3">
 				<p class="dash"> Predicted Drop Students </p>
 				<h1 id="drop"> 20 </h1>
-			</div> 
+			</div>
 
 			<div class="col-sm-3">
 				<p class="dash"> Predicted Waitlist Acceptance </p>
 				<h1 id="percent"> <span id="waitlist"> 81 </span> % </h1>
-			</div> 
+			</div>
 		</div>
 		<div class="row">
 			<div class="col-sm-3">
@@ -120,7 +118,7 @@
 								<button id="courseselect" class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown">
 									<span class="selection">Course</span>
 								</button>
-								<div class="dropdown-menu" id="subject-dropdown-menu">
+								<div class="dropdown-menu" id="course-dropdown-menu">
     								<button class="dropdown-item" type="button">CS 103</button>
     								<button class="dropdown-item" type="button">Math 202</button>
     								<button class="dropdown-item" type="button">ME 375</button>
@@ -158,7 +156,7 @@
 				<canvas height="40%" width="100%" id="myChart"></canvas>
 			</div>
 		</div>
-		
+
 	</div>
 	<script>
 	$("#update").click(function(){
