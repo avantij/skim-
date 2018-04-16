@@ -53,13 +53,20 @@ h1 {
 #update {
 	background-color: #47BCEC;
 	border-color: #47BCEC;
-	margin-left: 5%;
+	margin-left: 8%;
+	min-width: 180px;
 }
 
-#courseselect,#subjectselect{
-	margin-left: 15%;
+#subjectselect {
+	margin-left: 10%;
+	min-width: 180px;
+}
+#courseselect{
+	margin-left: 10%;
+	min-width: 180px;
 }
 
 #yearselect {
-	margin-left: 18%;
+	margin-left: 10%;
+	min-width: 180px;
 }
